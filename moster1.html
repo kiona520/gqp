@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>怪兽变脸</title>
+  <link rel="stylesheet"href="css/myCss.css" type="text/css"/>
+  <script src= "scripts/jquery-3.1.1.min.js"></script>
+ </head>
+ <body>
+ <header id = "top">
+ <img src = "images/Monster_Mashup.png"/>
+ <p>点击图片给怪兽变脸</p>
+ </header>
+  <div id = "container"> 
+	<img class = "lighting" id = "lighting1" src = "images/lightning-01.jpg"/>
+	<img class = "lighting" id = "lighting2" src = "images/lightning-02.jpg"/>
+	<img class = "lighting" id = "lighting3" src = "images/lightning-03.jpg"/>
+	<div id = "frame">
+		<div id = "pic_box">
+			<div id = "head" class = "face"><img src = "images/headsstrip.jpg"/></div>
+			<div id = "eyes" class = "face"><img src = "images/eyesstrip.jpg"/></div>
+			<div id = "nose" class = "face"><img src = "images/nosesstrip.jpg"/></div>
+			<div id = "mouth" class = "face"><img src = "images/mouthsstrip.jpg"/></div>
+		</div>
+	</div>
+  </div>
+  <script type = "text/javascript">
+
+	$(function(){
+		var headclick = 0,eyeclick = 0,noseclick = 0,mouthclick=0;
+		var click = [0,0,0,0];
+        goLightning();
+		window.onfocus = goLightning;
+		window.onblur = stopLightning;
+		
+		$("#head").click(function(){
+			
+			moveMe(0,this);
+		});
+
+
+		$("#eyes").click(function(){
+			moveMe(1,this);
+		});
+
+		$("#nose").click(function(){
+			moveMe(3,this);
+		});
+
+
+		$("#mouth").click(function(){
+			moveMe(2,this);
+		});
+
+
+		function moveMe(i,obj){
+			if(click[i] < 9){
+				$(obj).animate({left:"-=367px"},500);
+				click[i] += 1;
+			}else{
+				$(obj).animate({left:"0px"},500);
+				click[i] = 0;
+			}
+		}
+
+	});
+
+
+
+
+
+
+	function lightning_one(){
+		$("#lighting1").fadeIn(250).fadeOut(250);
+		
+	}
+
+	function lightning_two(){
+		$("#lighting2").fadeIn(250).fadeOut(250);
+		
+	}
+
+	function lightning_three(){
+		$("#lighting3").fadeIn(250).fadeOut(250);
+		
+	}
+
+
+	function goLightning(){
+		int1 = setInterval(function(){lightning_one()},4000);
+		int2 = setInterval(function(){lightning_two()},5000);
+		int3 = setInterval(function(){lightning_three()},7000);
+	}
+
+	function stopLightning(){
+		window.clearInterval(int1);
+		window.clearInterval(int2);
+		window.clearInterval(int3);
+	}
+
+  </script>
+ </body>
+</html>

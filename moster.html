@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>怪兽变脸</title>
+  <link rel="stylesheet"href="css/myCss.css" type="text/css"/>
+  <script src= "scripts/jquery-3.1.1.min.js"></script>
+ </head>
+ <body>
+ <header id = "top">
+ <img src = "images/Monster_Mashup.png"/>
+ <p>点击图片给怪兽变脸</p>
+ </header>
+  <div id = "container"> 
+	<img class = "lighting" id = "lighting1" src = "images/lightning-01.jpg"/>
+	<img class = "lighting" id = "lighting2" src = "images/lightning-02.jpg"/>
+	<img class = "lighting" id = "lighting3" src = "images/lightning-03.jpg"/>
+	<div id = "frame">
+		<div id = "pic_box">
+			<div id = "head" class = "face"><img src = "images/headsstrip.jpg"/></div>
+			<div id = "eyes" class = "face"><img src = "images/eyesstrip.jpg"/></div>
+			<div id = "nose" class = "face"><img src = "images/nosesstrip.jpg"/></div>
+			<div id = "mouth" class = "face"><img src = "images/mouthsstrip.jpg"/></div>
+		</div>
+	</div>
+  </div>
+  <script type = "text/javascript">
+
+	$(function(){
+		var headclick = 0,eyeclick = 0,noseclick = 0,mouthclick=0;
+
+        lightning_one(4000);
+		lightning_two(5000);
+		lightning_three(7000);
+
+
+		$("#head").click(function(){
+			
+			if(headclick < 9){
+				$(this).animate({left:"-=367px"},500);
+				headclick += 1;
+			}else{
+				$(this).animate({left:"0px"},500);
+				headclick = 0;
+			}
+		});
+
+
+		$("#eyes").click(function(){
+			if(eyeclick < 9){
+				$(this).animate({left:"-=367px"},500);
+				eyeclick += 1;
+			}else{
+				$(this).animate({left:"0px"},500);
+				eyeclick = 0;
+			}
+		});
+
+		$("#nose").click(function(){
+			if(noseclick < 9){
+				$(this).animate({left:"-=367px"},500);
+				noseclick += 1;
+			}else{
+				$(this).animate({left:"0px"},500);
+				noseclick = 0;
+			}
+		});
+
+
+		$("#mouth").click(function(){
+			if(mouthclick < 9){
+				$(this).animate({left:"-=367px"},500);
+				mouthclick += 1;
+			}else{
+				$(this).animate({left:"0px"},500);
+				mouthclick = 0;
+			}
+		});
+	});
+
+
+
+	function lightning_one(t){
+		$("#lighting1").fadeIn(250).fadeOut(250);
+		setTimeout("lightning_one()",t);
+	}
+
+	function lightning_two(t){
+		$("#lighting2").fadeIn(250).fadeOut(250);
+		setTimeout("lightning_two()",t);
+	}
+
+	function lightning_three(t){
+		$("#lighting3").fadeIn(250).fadeOut(250);
+		setTimeout("lightning_three()",t);
+	}
+
+  </script>
+ </body>
+</html>

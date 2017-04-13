@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>怪兽随机变脸</title>
+  <link rel="stylesheet" href="css/myCss.css" type="text/css"/>
+  <script src= "scripts/jquery-3.1.1.min.js"></script>
+ </head>
+ <body>
+ <header id = "top">
+ <img src = "images/Monster_Mashup.png"/>
+ <button id = "btnRandom">随机变脸</button>
+ <button id = "btnReset">重置</button>
+ <p>点击图片给怪兽变脸</p>
+ </header>
+  <div id = "container"> 
+	<img class = "lighting" id = "lighting1" src = "images/lightning-01.jpg"/>
+	<img class = "lighting" id = "lighting2" src = "images/lightning-02.jpg"/>
+	<img class = "lighting" id = "lighting3" src = "images/lightning-03.jpg"/>
+	<div id = "frame">
+		<div id = "pic_box">
+			<div id = "head" class = "face"><img src = "images/headsstrip.jpg"/></div>
+			<div id = "eyes" class = "face"><img src = "images/eyesstrip.jpg"/></div>
+			<div id = "nose" class = "face"><img src = "images/nosesstrip.jpg"/></div>
+			<div id = "mouth" class = "face"><img src = "images/mouthsstrip.jpg"/></div>
+		</div>
+	</div>
+  </div>
+  <script type = "text/javascript">
+
+	$(function(){
+		var headclick = 0,eyeclick = 0,noseclick = 0,mouthclick=0;
+		var click = [0,0,0,0];
+	
+        goLightning();
+		window.onfocus = goLightning;
+		window.onblur = stopLightning;
+		
+		$("#head").click(function(){
+			
+			moveMe(0,this);
+		});
+
+
+		$("#eyes").click(function(){
+			moveMe(1,this);
+		});
+
+		$("#nose").click(function(){
+			moveMe(2,this);
+		});
+
+
+		$("#mouth").click(function(){
+			moveMe(3,this);
+		});
+
+		$("#btnRandom").click(randomize);
+
+		$("#btnReset").click(reset);
+
+
+		function moveMe(i,obj){
+			console.log(click);
+			if(click[i] < 9){
+				$(obj).animate({left:"-=367px"},500);
+				click[i] += 1;
+			}else{
+				$(obj).animate({left:"0px"},500);
+				click[i] = 0;
+			}
+			
+		}
+
+
+
+		function  getRandom(num){
+			return Math.floor(Math.random()*num);
+		}
+
+
+		var w = 367;
+		var m = 10;
+		function randomize(){
+			$(".face").each(function(i){
+				var target_position = getRandom(10);
+				var current_position = click[i];
+				click[i] = target_position;
+				if(target_position>current_position){
+					var move_to = (target_position - current_position)*w;
+					$(this).animate({left:"-="+move_to+"px"},500);
+				}else if(target_position<current_position){
+					var move_to = (current_position - target_position)*w;
+					$(this).animate({left:"+="+move_to+"px"},500);
+				}else{
+					
+				}
+
+				//这种做法是绝对位置已从，虽然可以实现需求，但是改变元素的位置同时得改变这里的移动大小
+				//var move_to = target_position*w;
+				//$(this).animate({left:"-"+move_to+"px"},500);
+
+				
+			});
+		}
+
+		function reset(){
+		
+			 $(".face").each(function(index){
+				
+				click[index] = 0;
+				$(this).animate({left:"0px"},500);
+			 });
+		}
+
+	});
+
+
+
+
+
+	
+
+
+
+
+
+
+	function lightning_one(){
+		$("#lighting1").fadeIn(250).fadeOut(250);
+		
+	}
+
+	function lightning_two(){
+		$("#lighting2").fadeIn(250).fadeOut(250);
+		
+	}
+
+	function lightning_three(){
+		$("#lighting3").fadeIn(250).fadeOut(250);
+		
+	}
+
+
+	function goLightning(){
+		int1 = setInterval(lightning_one,4000);
+		int2 = setInterval(lightning_two,5000);
+		int3 = setInterval(lightning_three,7000);
+	}
+
+	function stopLightning(){
+		window.clearInterval(int1);
+		window.clearInterval(int2);
+		window.clearInterval(int3);
+	}
+
+  </script>
+ </body>
+</html>

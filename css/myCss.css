@@ -1,0 +1,75 @@
+#container{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:0;
+}
+
+.lighting{
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:0;
+}
+
+
+
+#frame{
+	position:absolute;
+	left:100px;
+	top:100px;
+	width:545px;
+	height:629px;
+	background-image:url(images/frame.png);
+	z-index:2;
+	overflow:hidden;
+}
+
+body{
+	background:#000000;
+}
+
+p{
+	color:#33ff66;
+	font-family:华文新魏,宋体,黑体;
+	font-size:12px;
+}
+
+#top{
+	position:relative;
+	z-index:4;
+}
+
+#pic_box{
+	position:relative;
+	left:91px;
+	top:84px;
+	width:367px;
+	height:460px;
+	z-index:1;
+	overflow:hidden;
+}
+
+.face{
+	position:relative;
+	left:0;
+	top:0;
+	z-index:0;
+}
+
+#head{
+	height:172px;
+}
+
+#eyes{
+	height:79px;
+}
+
+#nose{
+	height:86px;
+}
+
+#mouth{ 
+	height:117px;
+}

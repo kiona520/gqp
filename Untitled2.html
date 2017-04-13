@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+		#click_me{
+			background:yellow;
+			padding:20px;
+			text-align:center;
+			width:200px;
+			display:block;
+			border:solid 1px #000;
+		}
+		#pic_div{
+			background:#d8b36e;
+			display:none;
+			border:solid 2px #000;
+		}
+		#img{
+			position:relative;
+			margin:20px;
+		}
+  </style>
+  <script src= "scripts/jquery-3.1.1.min.js"></script>
+ </head>
+ <body>
+  <div id = "click_me">点我会不一样哦！</div>
+  <div id  ="pic_div">
+	<img id = "img" src= "http://pic28.nipic.com/20130424/11588775_115415688157_2.jpg"/>
+  </div>
+  <script type= "text/javascript">
+	
+	$(function(){
+		$("#click_me").click(function(){
+			//$("#img").fadeIn(1000);
+			$("#pic_div").fadeToggle("slow");
+
+		});
+	});
+
+	var arr = new Array(6)
+	arr[0] = "0George"
+	arr[1] = "1John"
+	arr[2] = "2Thomas"
+	arr[3] = "3James"
+	arr[4] = "4Adrew"
+	arr[5] = "5Martin"
+
+	document.write(arr + "<br />")
+	document.write(arr.slice(1) + "<br />")
+	document.write(arr.slice(2,4) + "<br />")
+	document.write(arr.slice(-2)+ "<br />")
+	document.write(arr.slice(-2)+ "<br />")
+	document.write(arr)
+
+
+
+	
+  </script>
+
+
+ </body>
+</html>

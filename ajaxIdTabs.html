@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>idTabs标签库的使用</title>
+  <link rel = "stylesheet" href = "css/ajaxIdTabs.css"/>
+ </head>
+ <body>
+ <header><h2>2017参赛人员</h2></header>
+	<div id = "main">
+		<ul class = "idTabs">
+			<li><a href = "#male">男运动员</a></li>
+			<li><a href = "#female">女运动员</a></li>
+			<li><a href = "#all">所有运动员</a></li>
+		</ul>
+		<div id ="male">
+			<h4>男运动员</h4>
+			<ul id = "male_finishers"></ul>
+		</div>
+		<div id ="female">
+			<h4>女运动员</h4>
+			<ul id = "female_finishers"></ul>
+		</div>
+		<div id ="all">
+			<h4>所有运动员</h4>
+			<ul id = "all_finishers"></ul>
+		</div>
+	</div>
+	<footer>
+		<h4>祝贺所有的运动员！</h4>
+		<button id ="btnStop">停止刷新</button>
+		<button id ="btnStart">开始刷新</button><br/>
+		<span id = "freq"></span>
+		<br/>更新时间：<div id = "updateTime"></div>
+	</footer>
+
+ <script src = "scripts/jquery-3.1.1.min.js"></script>
+ <script src = "scripts/jquery.idTabs.min.js"></script>
+ <script src= "scripts/ajaxIdTabs.js"></script>
+ 
+ 
+ </script>
+ </body>
+</html>
